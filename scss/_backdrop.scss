@@ -1,0 +1,134 @@
+.backdrop{
+    display: none;
+    background-color: #403f3d62;
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 100%;
+    width: 100%;
+    z-index: 3;
+    place-items: center;
+}
+
+.card{
+    background-color: $background-body;
+    border-radius: 40px;
+    padding: 16px;
+    display: grid;
+    gap: 20px;
+    max-width: 800px;
+    grid-template-columns: 310px 1fr;
+   
+    img{
+        width: 100%;
+        border-radius: 40px;
+    }
+    &-info{
+        display: grid;
+        gap: 20px;
+        >div:not(.card-total){
+            display: grid;
+            gap: 12px;
+        }
+        
+    }
+   
+    &-size, &-addivities{
+        input{
+            display: none;
+        }
+        div{
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+    }
+    &-total{
+        display: flex;
+        justify-content: space-between;
+        .text-uppermid{
+            color: $text-dark;
+        }
+    }
+    &-more{
+        font-size: 10px;
+        line-height: 14px;
+        font-weight: $bold;
+        border-top: 1px solid #C1B6AD;
+        padding: 12px 0 12px 24px;
+        background: url("../img/info-empty.png") no-repeat top 13px left 0;
+    }
+    &-close{
+        @include text-medium;
+        background-color: $background-body;
+        border: 1px solid $background-container;
+        border-radius: 40px;
+        color: $text-dark;
+        font-weight: $bold;
+        padding: 10px 0;
+        transition: all .5s ease-in-out;
+        cursor: pointer;
+        &:hover{
+            background-color: $background-container;
+            color: $text-light
+        }
+    }
+  
+}
+.card-size label, .card-addivities label{
+    display: inline-flex;
+    align-items: center;
+    @include text-medium;
+    font-weight: $bold;
+    color: $text-dark;
+    border: 1px solid $background-container;
+    border-radius: 100px;
+    padding: 8px 16px 8px 8px;
+    min-width: 108px;
+    transition: all .5s ease-in-out;
+    cursor: pointer;
+    &:hover{
+        background-color: $background-container;
+        color: $text-light;
+        .size-type{
+            background-color: $background-body;
+            color: $text-dark;
+        }
+    }
+}
+.card-size input:checked + label, .card-addivities input:checked + label{
+    background-color: $background-container;
+    color: $text-light;
+    transition: all .5s ease-in-out;
+    .size-type{
+        background-color: $background-body;
+        color: $text-dark;
+    }
+}
+.size-type{
+    background-color: #C1B6AD;
+    display: inline-flex;
+    border: 1px solid #C1B6AD;
+    border-radius: 100px;
+    width: 30px;
+    height: 30px;
+    justify-content: center;
+    align-items: center;
+    margin-right: 12px;
+}
+
+@media (max-width: 1080px) {
+    .card{
+        max-width: 688px;
+    }
+}
+
+@media (max-width: 768px){
+    .backdrop{
+        padding: 0 19px;
+    }
+    .card{
+        grid-template-columns: 1fr;
+        >div:has(img){display: none;}
+    }
+}

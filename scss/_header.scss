@@ -1,0 +1,123 @@
+header{
+    display: flex;
+    margin-top: 20px;
+    justify-content: space-between;
+    &>input{
+        display: none;
+    }
+}
+.header-container{
+    display: flex;
+    width: 100%;
+}
+nav{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    gap: 40px;
+    a{
+        @include bold-text;
+        @include underline;
+    }
+}
+
+.navmenu-btn{
+    @include bold-text;
+    background: none;
+    border: none;
+   
+    text-align: left;
+
+    
+}
+
+// header:has(#navmenu-btn:checked) + main .test{
+//     background-color: red;
+// }
+.header-checkbox:has(#navmenu-btn:checked){
+    &::after{
+        width: 100%;
+    }
+}
+
+.header-checkbox{
+    display: flex;
+    place-items: center;
+    max-width: 72px;
+    width: 100%;
+    
+    @include underline;
+    height: min-content;
+    margin: auto 0;
+    background:url(../img/coffee-cup.png) right no-repeat;
+    label{
+        @include bold-text;
+        width: 100%;
+        cursor: pointer;
+    }
+}
+
+@media (min-width: 1080px) {
+    // .header-revealer{display: none;}
+}
+
+// header label{
+//     width: 44px;
+//     height: 44px;
+//     border: 1px solid $background-container;
+//     border-radius: 100px;
+//     background: url("../img/lines.png") no-repeat center;
+// }
+
+// @media (min-width: 768px) and (max-width: 1080px){
+@media (max-width: 1080px){
+    .header-container{
+        display: none;
+    }
+   
+    header > label{
+        width: 44px;
+        height: 44px;
+        border: 1px solid $background-container;
+        border-radius: 100px;
+        background: url("../img/lines.png") no-repeat center;
+    }
+    header:has(#header-revealer:checked) .header-container{
+        padding: 60px 40px;
+        position: absolute;
+        z-index: 2;
+        top: 80px;
+        left: 0;
+        background-color: $background-body;
+        bottom: 0;
+        height: 100%;
+        width: 100%;
+        display: grid;
+        justify-content: center;
+        gap: 100px;
+        nav{
+            display: grid;
+            align-items: start;
+           
+            gap: 60px;
+            
+            a{
+                @include text-prehuge;
+                text-align: center;
+            }
+        }
+        .header-checkbox{
+            margin: 0;
+            max-width: none;
+            background: url("../img/coffee-cup-tab.png") left calc(50% + 73px) top 50% no-repeat;
+        }
+        label{
+            @include text-prehuge;
+            text-align: center;
+        }
+    }
+    body:has(#header-revealer:checked){
+        overflow: hidden;
+    }
+}

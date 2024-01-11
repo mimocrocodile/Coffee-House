@@ -1,0 +1,48 @@
+@mixin bold-text() {
+        text-decoration: none;
+        font-weight: $bold;
+        color: $text-dark;
+        line-height: $line-medium;
+        font-size: $size-medium;
+}
+@mixin text-prehuge(){
+    font-size: $size-prehuge;
+    line-height: $line-prehuge;
+    font-weight: $bold;
+    color: $text-dark;
+}
+@mixin text-huge(){
+    font-weight: $bold;
+    font-size: $size-huge;
+    line-height: $line-giga;
+    color: $text-dark;
+
+}
+
+@mixin text-uppermid(){
+    font-weight: $bold;
+    font-size: $size-uppermid;
+    line-height: $line-uppermid;
+}
+@mixin text-medium(){
+    font-weight: $medium;
+    font-size: $size-medium;
+    line-height: $line-medium;
+    color: $text-light;
+}
+@mixin underline(){
+    position: relative;
+    &:after{
+        transition:  1s ;
+        width: 0;
+        content: "";
+        height: 2px;
+        left: 0;
+        position: absolute;
+        bottom: -4px;
+        background-color: $text-dark;
+    }
+    &:hover::after{
+        width: 100%;
+    }
+}

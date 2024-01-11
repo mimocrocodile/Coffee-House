@@ -1,0 +1,56 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Inter';
+    min-width: 0;
+    min-height: 0;
+}
+body{
+    background-color: $background-body;
+}
+p{
+    user-select: none;
+}
+header, footer, main{
+    max-width: 1440px;
+    padding: 0 40px;
+    margin: 0 auto;
+}
+
+#navmenu-btn, #mainmenu-btn{
+    display: none;
+}
+
+.italic{
+    font-style: italic;
+    color: $text-accent
+}
+
+
+
+
+
+.huge-text{
+    @include text-huge;
+    text-align: center;
+}
+
+.subtitle{
+    @include text-uppermid;
+    color: $text-dark;
+}
+.text-medium{
+    @include text-medium;
+    color: $text-dark;
+}
+.text-uppermid{
+    @include text-uppermid;
+    color: $text-light;
+}
+
+@media (max-width: 450px) {
+    header, footer, main{
+        padding: 0 16px;
+    }
+}
